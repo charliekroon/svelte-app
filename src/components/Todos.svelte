@@ -1,9 +1,5 @@
 <script>
-    let todos = [
-        { id: 1, name: "Create a Svelte starter app", completed: true },
-        { id: 2, name: "Create your first component", completed: true },
-        { id: 3, name: "Complete the rest of the tutorial", completed: false },
-    ];
+    export let todos = [];
 
     let totalTodos = todos.length;
     let completedTodos = todos.filter((todo) => todo.completed).length;
@@ -54,14 +50,39 @@
     </h2>
 
     <!-- Todos -->
-    <ul>
-        {#each todos as todo, index (todo.id)}
-            <li>
-                <input type="checkbox" checked={todo.completed} />
-                {index}. {todo.name} (id: {todo.id})
+    <ul
+        role="list"
+        class="todo-list stack-large"
+        aria-labelledby="list-heading"
+    >
+        {#each todos as todo (todo.id)}
+            <li class="todo">
+                <div class="stack-small">
+                    <div class="c-cb">
+                        <input
+                            type="checkbox"
+                            id="todo-{todo.id}"
+                            checked={todo.completed}
+                        />
+                        <label for="todo-{todo.id}" class="todo-label">
+                            {todo.name}
+                        </label>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn">
+                            Edit <span class="visually-hidden">{todo.name}</span
+                            >
+                        </button>
+                        <button type="button" class="btn btn__danger">
+                            Delete <span class="visually-hidden"
+                                >{todo.name}</span
+                            >
+                        </button>
+                    </div>
+                </div>
             </li>
         {:else}
-            Nothing to do here!
+            <li>Nothing to do here!</li>
         {/each}
     </ul>
 
