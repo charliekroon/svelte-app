@@ -74,7 +74,7 @@
         >
             {#each filterTodos(filter, todos) as todo (todo.id)}
                 <li class="todo">
-                    <Todo {todo} />
+                    <Todo {todo} on:remove={(e) => removeTodo(e.detail)} />
                 </li>
             {:else}
                 <li>Nothing to do here!</li>
