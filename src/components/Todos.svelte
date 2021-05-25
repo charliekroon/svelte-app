@@ -53,7 +53,7 @@
     </form>
 
     <!-- Filter -->
-    <FilterButton {filter} onclick={(clicked) => (filter = clicked)} />
+    <FilterButton bind:filter />
 
     <!-- TodosStatus -->
     <h2 id="list-heading">
