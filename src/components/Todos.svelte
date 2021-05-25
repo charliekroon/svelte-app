@@ -23,6 +23,11 @@
         newTodoName = "";
     }
 
+    function updateTodo(todo) {
+        const i = todos.findIndex((t) => t.id === todo.id);
+        todos[i] = { ...todos[i], ...todo };
+    }
+
     let filter = "all";
     const filterTodos = (filter, todos) =>
         filter === "active"
@@ -32,9 +37,7 @@
             : todos;
 </script>
 
-<!-- Todos.svelte -->
 <div class="todoapp stack-large">
-    <!-- NewTodo -->
     <form on:submit|preventDefault={addTodo}>
         <h2 class="label-wrapper">
             <label for="todo-0" class="label__lg">
@@ -53,38 +56,32 @@
         </button>
     </form>
 
-    <!-- Filter -->
     <FilterButton bind:filter />
 
-    <!-- TodosStatus -->
     <h2 id="list-heading">
         {completedTodos} out of {totalTodos} items completed
     </h2>
 
-    <!-- Todos -->
     <ul
         role="list"
         class="todo-list stack-large"
         aria-labelledby="list-heading"
     >
-        <ul
-            role="list"
-            class="todo-list stack-large"
-            aria-labelledby="list-heading"
-        >
-            {#each filterTodos(filter, todos) as todo (todo.id)}
-                <li class="todo">
-                    <Todo {todo} on:remove={(e) => removeTodo(e.detail)} />
-                </li>
-            {:else}
-                <li>Nothing to do here!</li>
-            {/each}
-        </ul>
+        {#each filterTodos(filter, todos) as todo (todo.id)}
+            <li class="todo">
+                <Todo
+                    {todo}
+                    on:update={(e) => updateTodo(e.detail)}
+                    on:remove={(e) => removeTodo(e.detail)}
+                />
+            </li>
+        {:else}
+            <li>Nothing to do here!</li>
+        {/each}
     </ul>
 
     <hr />
 
-    <!-- MoreActions -->
     <div class="btn-group">
         <button type="button" class="btn btn__primary">Check all</button>
         <button type="button" class="btn btn__primary">Remove completed</button>
