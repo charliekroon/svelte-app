@@ -1,25 +1,27 @@
+
+<style>
 /* RESETS */
-*,
-*::before,
-*::after {
+:global(*),
+:global(*::before),
+:global(*::after) {
   box-sizing: border-box;
 }
-*:focus {
+:global(*:focus) {
   outline: 3px dashed #228bec;
   outline-offset: 0;
 }
-html {
+:global(html) {
   font: 62.5% / 1.15 sans-serif;
 }
-h1,
-h2 {
+:global(h1),
+:global(h2) {
   margin-bottom: 0;
 }
-ul {
+:global(ul) {
   list-style: none;
   padding: 0;
 }
-button {
+:global(button) {
   border: none;
   margin: 0;
   padding: 0;
@@ -33,27 +35,27 @@ button {
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;
 }
-button::-moz-focus-inner {
+:global(button::-moz-focus-inner) {
   border: 0;
 }
-button,
-input,
-optgroup,
-select,
-textarea {
+:global(button),
+:global(input),
+:global(optgroup),
+:global(select),
+:global(textarea) {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
 }
-button,
-input {
+:global(button),
+:global(input) {
   overflow: visible;
 }
-input[type="text"] {
+:global(input[type="text"]) {
   border-radius: 0;
 }
-body {
+:global(body) {
   width: 100%;
   max-width: 68rem;
   margin: 0 auto;
@@ -62,64 +64,64 @@ body {
   color: #4d4d4d;
 }
 @media screen and (min-width: 620px) {
-  body {
-    font-size: 1.9rem;
-    line-height: 1.31579;
+  :global(body) {
+	font-size: 1.9rem;
+	line-height: 1.31579;
   }
 }
 /*END RESETS*/
 
 /* GLOBAL STYLES */
-.form-group > input[type="text"] {
+:global(.form-group > input[type="text"]) {
   display: inline-block;
   margin-top: 0.4rem;
 }
-.btn {
+:global(.btn) {
   padding: 0.8rem 1rem 0.7rem;
   border: 0.2rem solid #4d4d4d;
   cursor: pointer;
   text-transform: capitalize;
 }
-.btn.toggle-btn {
+:global(.btn.toggle-btn) {
   border-width: 1px;
   border-color: #d3d3d3;
 }
-.btn.toggle-btn[aria-pressed="true"] {
+:global(.btn.toggle-btn[aria-pressed="true"]) {
   text-decoration: underline;
   border-color: #4d4d4d;
 }
-.btn__danger {
+:global(.btn__danger) {
   color: #fff;
   background-color: #ca3c3c;
   border-color: #bd2130;
 }
-.btn__filter {
+:global(.btn__filter) {
   border-color: lightgrey;
 }
-.btn__primary {
+:global(.btn__primary) {
   color: #fff;
   background-color: #000;
 }
-.btn__primary:disabled {
+:global(.btn__primary:disabled) {
   color: darkgrey;
-  background-color:#565656;
+  background-color: #565656;
 }
-.btn-group {
+:global(.btn-group) {
   display: flex;
   justify-content: space-between;
 }
-.btn-group > * {
+:global(.btn-group > *) {
   flex: 1 1 49%;
 }
-.btn-group > * + * {
+:global(.btn-group > * + *) {
   margin-left: 0.8rem;
 }
-.label-wrapper {
+:global(.label-wrapper) {
   margin: 0;
   flex: 0 0 100%;
   text-align: center;
 }
-.visually-hidden {
+:global(.visually-hidden) {
   position: absolute !important;
   height: 1px;
   width: 1px;
@@ -128,108 +130,109 @@ body {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }
-[class*="stack"] > * {
+:global([class*="stack"] > *) {
   margin-top: 0;
   margin-bottom: 0;
 }
-.stack-small > * + * {
+:global(.stack-small > * + *) {
   margin-top: 1.25rem;
 }
-.stack-large > * + * {
+:global(.stack-large > * + *) {
   margin-top: 2.5rem;
 }
 @media screen and (min-width: 550px) {
-  .stack-small > * + * {
-    margin-top: 1.4rem;
+  :global(.stack-small > * + *) {
+	margin-top: 1.4rem;
   }
-  .stack-large > * + * {
-    margin-top: 2.8rem;
+  :global(.stack-large > * + *) {
+	margin-top: 2.8rem;
   }
 }
-.stack-exception {
+:global(.stack-exception) {
   margin-top: 1.2rem;
 }
 /* END GLOBAL STYLES */
 
-.todoapp {
+:global(.todoapp) {
   background: #fff;
   margin: 2rem 0 4rem 0;
   padding: 1rem;
   position: relative;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+	0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
 }
 @media screen and (min-width: 550px) {
-  .todoapp {
-    padding: 4rem;
+  :global(.todoapp) {
+	padding: 4rem;
   }
 }
-.todoapp > * {
+:global(.todoapp > *) {
   max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
 }
-.todoapp > form {
+:global(.todoapp > form) {
   max-width: 100%;
 }
-.todoapp > h1 {
+:global(.todoapp > h1) {
   display: block;
   max-width: 100%;
   text-align: center;
   margin: 0;
   margin-bottom: 1rem;
 }
-.label__lg {
+:global(.label__lg) {
   line-height: 1.01567;
   font-weight: 300;
   padding: 0.8rem;
   margin-bottom: 1rem;
   text-align: center;
 }
-.input__lg {
+:global(.input__lg) {
   padding: 2rem;
   border: 2px solid #000;
 }
-.input__lg:focus {
+:global(.input__lg:focus) {
   border-color: #4d4d4d;
   box-shadow: inset 0 0 0 2px;
 }
-[class*="__lg"] {
+:global([class*="__lg"]) {
   display: inline-block;
   width: 100%;
   font-size: 1.9rem;
 }
-[class*="__lg"]:not(:last-child) {
+:global([class*="__lg"]:not(:last-child)) {
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 620px) {
-  [class*="__lg"] {
-    font-size: 2.4rem;
+  :global([class*="__lg"]) {
+	font-size: 2.4rem;
   }
 }
-.filters {
+:global(.filters) {
   width: 100%;
   margin: unset auto;
 }
 /* Todo item styles */
-.todo {
+:global(.todo) {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.todo > * {
+:global(.todo > *) {
   flex: 0 0 100%;
 }
-.todo-text {
+:global(.todo-text) {
   width: 100%;
   min-height: 4.4rem;
   padding: 0.4rem 0.8rem;
   border: 2px solid #565656;
 }
-.todo-text:focus {
+:global(.todo-text:focus) {
   box-shadow: inset 0 0 0 2px;
 }
 /* CHECKBOX STYLES */
-.c-cb {
+:global(.c-cb) {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -242,15 +245,15 @@ body {
   padding-left: 40px;
   clear: left;
 }
-.c-cb > label::before,
-.c-cb > input[type="checkbox"] {
+:global(.c-cb > label::before),
+:global(.c-cb > input[type="checkbox"]) {
   box-sizing: border-box;
   top: -2px;
   left: -2px;
   width: 44px;
   height: 44px;
 }
-.c-cb > input[type="checkbox"] {
+:global(.c-cb > input[type="checkbox"]) {
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
   position: absolute;
@@ -258,7 +261,7 @@ body {
   margin: 0;
   opacity: 0;
 }
-.c-cb > label {
+:global(.c-cb > label) {
   font-size: inherit;
   font-family: inherit;
   line-height: inherit;
@@ -268,17 +271,17 @@ body {
   cursor: pointer;
   touch-action: manipulation;
 }
-.c-cb > label::before {
+:global(.c-cb > label::before) {
   content: "";
   position: absolute;
   border: 2px solid currentColor;
   background: transparent;
 }
-.c-cb > input[type="checkbox"]:focus + label::before {
+:global(.c-cb > input[type="checkbox"]:focus + label::before) {
   border-width: 4px;
   outline: 3px dashed #228bec;
 }
-.c-cb > label::after {
+:global(.c-cb > label::after) {
   box-sizing: content-box;
   content: "";
   position: absolute;
@@ -293,6 +296,7 @@ body {
   opacity: 0;
   background: transparent;
 }
-.c-cb > input[type="checkbox"]:checked + label::after {
+:global(.c-cb > input[type="checkbox"]:checked + label::after) {
   opacity: 1;
 }
+</style>

@@ -1,3 +1,4 @@
+<!-- App.svelte -->
 <script>
   import Todos from "./components/Todos.svelte";
 
